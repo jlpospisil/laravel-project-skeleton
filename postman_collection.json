@@ -1,0 +1,88 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MWL - Documents Server",
+		"_postman_id": "048da8c2-c406-1c0a-afc4-92f37282aa7f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/oauth/token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const response = JSON.parse(responseBody);",
+							"const access_token = response.access_token;",
+							"",
+							"postman.setEnvironmentVariable(\"access_token\", access_token);",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Token returned\"] =  access_token !== null;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFhYjM2OGIxOTFiMDQzNjFmNTQyODhlNTRjNDAyOWRhZGU4NDg3N2VjNTM2OGI2YjQ2NTQ5M2EwODdkN2Y1NjA4MTlmMWU3NGI0MjJhYWNiIn0.eyJhdWQiOiIxIiwianRpIjoiMWFiMzY4YjE5MWIwNDM2MWY1NDI4OGU1NGM0MDI5ZGFkZTg0ODc3ZWM1MzY4YjZiNDY1NDkzYTA4N2Q3ZjU2MDgxOWYxZTc0YjQyMmFhY2IiLCJpYXQiOjE1MzAwMjg4NTEsIm5iZiI6MTUzMDAyODg1MSwiZXhwIjoxNTYxNTY0ODUxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.hqryV0i5PvxFq-pIh-Zy_TwO4JSS00eFAv5RObmlWf5x80uO5fp6tG8bHKilrbRBpjyzDmH_SrcuqcgDv7L81lLDpkVgJ_rgD62PHw3WvtKZMzFGCbOJO74WeJSxCp7j7YcmgaYUYSbeNnuJFbSzAJjGUh16Ues2N5-0K8RQ061I2Z45kcyG98EE4wWOcbXWwxUb7R-lZd7jL-yLQUYBB-KxbWoaykO_KU52kHUFxEOlJbwWYIwJgQNU2QhKSrrpLwEp8fQ77lxr7h9Iz0tPNZio0jbP6GSUv0hE7Ha7CTc_SpeuuCvVSkicqvFMMfmPNuLtwCGqKwUeIh2O59_8-BSB1TXU9BGdj11LOHNQ5ERDBb2elJt4TU1Dwdqhjmwz8MTuBoP0F5iUXyOZwZTilpnNk5m70Rs0w0M6_sNYagoAU-SloQwLZEyxYggqSursZr3i_P_bkEzs4qanPHNsJ7VnhESsoW1VWYZlXuO-gvM-1g7ZaZVvdHuOOuhqjBUuAy1yWSi99uXM5oUZKLbF5BHTSE6CzOvJ2_UxV3PG-DphiQtt6XxxEoCK2METb6Tdg5J8umbm5hzEhf6e3YyqbL1yk9yTHS82iOwetuLXS5TV3OgJ0wSICKTl2Co5a1zeFjPn4tOXzm4Uj8X-LbAQAHno5gfSViNfi5G3uO3LLYY",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"grant_type\": \"password\",\n\t\"client_id\": \"{{api_client_id}}\",\n\t\"client_secret\": \"{{api_client_secret}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\"\n}"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "/api/invoice",
+			"request": {
+				"url": "{{host}}/api/invoice",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"details\": {\n\t\t\"testing\": 123,\n\t\t\"stuff\": [\n\t\t\t{\n\t\t\t\t\"test\": 1\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"test\": 2\n\t\t\t}\n\t\t]\n\t}\n\n}"
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}

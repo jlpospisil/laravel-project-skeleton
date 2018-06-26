@@ -15,6 +15,7 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('document_type_id')->reference('id')->on('document_types');
             $table->jsonb('data')->nullable();
             $table->timestamps();
         });

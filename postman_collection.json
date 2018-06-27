@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Documents",
+		"name": "Documents Server",
 		"_postman_id": "048da8c2-c406-1c0a-afc4-92f37282aa7f",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -78,7 +78,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"details\": {\n\t\t\"testing\": 123,\n\t\t\"stuff\": [\n\t\t\t{\n\t\t\t\t\"test\": 1\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"test\": 2\n\t\t\t}\n\t\t]\n\t}\n\n}"
+					"raw": "{\n\t\"details\": {\n\t\t\"id\": 123456880,\n\t\t\"created_at\": \"2018-12-01 12:34:56\",\n\t\t\"account_nbr\": \"12345\",\n\t\t\"line_items\": [\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"description\": \"Socks\",\n\t\t\t\t\"qty\": 2,\n\t\t\t\t\"price\": 1.01,\n\t\t\t\t\"total\": 2.02\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 205,\n\t\t\t\t\"description\": \"T-Shirt\",\n\t\t\t\t\"qty\": 1,\n\t\t\t\t\"price\": 15.22,\n\t\t\t\t\"total\": 15.22\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 12,\n\t\t\t\t\"description\": \"Blue Jeans\",\n\t\t\t\t\"qty\": 1,\n\t\t\t\t\"price\": 35.72,\n\t\t\t\t\"total\": 35.72\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 37,\n\t\t\t\t\"description\": \"Underwear\",\n\t\t\t\t\"qty\": 5,\n\t\t\t\t\"price\": 7.92,\n\t\t\t\t\"total\": 39.60\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 500,\n\t\t\t\t\"description\": \"State Sales Tax\",\n\t\t\t\t\"qty\": 1,\n\t\t\t\t\"price\": 12.01,\n\t\t\t\t\"total\": 12.01\n\t\t\t}\n\t\t]\n\t}\n\n}"
 				},
 				"description": null
 			},

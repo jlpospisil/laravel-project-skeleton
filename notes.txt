@@ -48,27 +48,37 @@ grant all privileges on database <db name> to <db user>;
 
 
 #################################################################
-## Raw query to retrieve invoice
+## Raw query to retrieve invoice(s)
 #################################################################
-with items as (
+with invoice_items as (
 	select details->'id' as invoice_id,
 	(details->>'created_at')::timestamptz as invoice_date,
 	details->'account_nbr' as account_nbr,
 	jsonb_array_elements(details->'line_items') as line_items
 	from public.documents
-	where document_type_id=1 and details @> '{"id": 123456879}'				-- by invoice id
-	--where document_type_id=1 and details @> '{"account_nbr": "12345"}'	-- by account number
+	where document_type_id=1 and (details->>'created_at')::date = '2018-12-01'
+	--where document_type_id=1 and details->'line_items' @> '[{"id": 37}]'						-- by item id
+	--where document_type_id=1 and details->'line_items' @> '[{"description": "Socks"}]'		-- by item description
+	--where document_type_id=1 and details @> '{"id": 123456880}'								-- by invoice id
+	--where document_type_id=1 and details @> '{"account_nbr": "12345"}'						-- by account number
 ),
-expanded as (
+invoice_details as (
 	select invoice_id,
 	invoice_date,
 	account_nbr,
 	i.*
-	from items, jsonb_to_record(line_items) as i(
+	from invoice_items, jsonb_to_record(line_items) as i(
 		description varchar(100),
 		report_nbr varchar(50),
 		price numeric
 	)
 )
 
-select * from expanded order by report_nbr
+-- Get invoice
+select * from invoice_details order by invoice_id, report_nbr
+
+-- Get invoices with total
+/* select invoice_id, invoice_date, account_nbr, sum(price) as total
+from invoice_details
+group by invoice_id, invoice_date, account_nbr
+order by invoice_id */

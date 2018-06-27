@@ -1,69 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card-inverse rounded" style="background-color:rgba(0,0,0,.5)">
+                    <div class="card-header">
+                        <h3 class="mb-0 text-center text-white">{{ config('app.name', 'Login') }}</h3>
+                    </div>
+                    <div class="card-block px-3">
+                        <form method="POST" action="{{ route('login') }}" class="form pb-3 pt-3">
+                            @csrf
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Username') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" placeholder="Username" value="{{ old('username') }}" required autofocus>
+                                    @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
+                                    @endif
+                                </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
+                                <div class="form-group">
+                                    <input  type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" value="">
+                                    @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                    </label>
+                                    @endif
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                                <div class="form-group row justify-content-between">
+                                    <div class="col">
+                                        <label class="text-white">
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                                        </label>
+                                    </div>
+                                    <div class="col text-right">
+                                        <input class="btn btn-lg btn-primary btn-sm" type="submit" value="Login">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                <div class="text-center mt-1">
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

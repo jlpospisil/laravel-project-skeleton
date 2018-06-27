@@ -1,9 +1,9 @@
 <template>
     <nav id="app-nav" class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand mr-auto" href="/">
+            <router-link to="/" class="navbar-brand mr-auto">
                 <strong>Nav Brand</strong>
-            </a>
+            </router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

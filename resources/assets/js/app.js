@@ -11,17 +11,48 @@ window.Vue = require('vue');
 
 Vue.config.productionTip = false
 
+// Laravel passport components
+Vue.component('Application', require('./components/Application.vue'));
+// Vue.component('passport-clients', require('./components/passport/Clients.vue'));
+// Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
+// Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
+
+
+/**
+ * Next, we will create a vue router to handle routing
+ */
+import VueRouter from 'vue-router';
+import routes from './app-routes';
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    routes,
+    mode: 'history'
+});
+
+
+/**
+ * Next, we will create a vuex store to handle the state data
+ */
+import Vuex from 'vuex';
+import userModule from './vuex-modules/user/module';
+
+let store = new Vuex.Store({
+    modules: {
+        user: userModule
+    }
+});
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Laravel passport components
-Vue.component('passport-clients', require('./components/passport/Clients.vue'));
-Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
-Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
-
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store,
+    router
 });

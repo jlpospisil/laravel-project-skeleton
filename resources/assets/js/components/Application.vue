@@ -2,9 +2,11 @@
     <div>
         <TopNav></TopNav>
 
-        <main id="app-content" class="container">
+        <div id="app-content" class="container">
+            <SideNav></SideNav>
+
             <router-view></router-view>
-        </main>
+        </div>
     </div>
 </template>
 
@@ -12,17 +14,19 @@
     @import '../../sass/_variables';
 
     #app-content {
-        padding-top: 60px;
+        padding-top: $top-nav-height;
     }
 </style>
 
 <script>
     import {mapActions} from 'vuex';
     import TopNav from './ui/TopNav.vue';
+    import SideNav from './ui/SideNav.vue';
 
     export default {
         components: {
-            TopNav
+            TopNav,
+            SideNav
         },
         methods: {
             ...mapActions('user', ['getUserDetails'])

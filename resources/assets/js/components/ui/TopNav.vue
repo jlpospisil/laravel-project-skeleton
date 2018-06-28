@@ -1,6 +1,6 @@
 <template>
-    <nav id="app-nav" class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
-        <div class="container">
+    <nav id="app-nav" class="navbar navbar-expand-sm fixed-top navbar-dark bg-primary">
+        <!--<div class="container">-->
             <router-link to="/" class="navbar-brand mr-auto">
                 <strong>Nav Brand</strong>
             </router-link>
@@ -14,7 +14,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown" v-if="user_details">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ user_details.name }}
                             <span class="caret"></span>
                         </a>
@@ -33,7 +33,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        <!--</div>-->
     </nav>
 </template>
 

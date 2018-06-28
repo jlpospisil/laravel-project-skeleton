@@ -1,9 +1,12 @@
 // Customize bootstrap
-$primary-color: #3F51B5;
+$primary-color: #343a40;
 
 $theme-colors: (
   "primary": $primary-color
 );
+
+// UI variables
+$top-nav-height: 56px;
 
 // Body
 $body-bg: #f5f8fa;

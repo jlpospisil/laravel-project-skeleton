@@ -14,4 +14,4 @@ Route::any('/logout', 'Auth\LoginController@logout');
 Route::get('/user', 'WebControllers\UserController@getUserDetails');
 
 // Fall back to vue router to handle request
-Route::get('/{vue_router_route?}', 'WebControllers\VueRouterController@index');
+Route::get('/{vue_router_route1?}/{vue_router_route2?}/{vue_router_route3?}', 'WebControllers\VueRouterController@index');

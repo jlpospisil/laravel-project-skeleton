@@ -32,10 +32,12 @@ const router = new VueRouter({
  * Next, we will create a vuex store to handle the state data
  */
 import Vuex from 'vuex';
+import uiModule from './vuex-modules/ui/module';
 import userModule from './vuex-modules/user/module';
 
 let store = new Vuex.Store({
     modules: {
+        ui: uiModule,
         user: userModule
     }
 });

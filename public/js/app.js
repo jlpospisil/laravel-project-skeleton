@@ -15345,7 +15345,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_routes__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vuex_modules_user_module__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vuex_modules_ui_module__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__vuex_modules_user_module__ = __webpack_require__(66);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -15381,9 +15382,11 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
 
 
 
+
 var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
   modules: {
-    user: __WEBPACK_IMPORTED_MODULE_3__vuex_modules_user_module__["a" /* default */]
+    ui: __WEBPACK_IMPORTED_MODULE_3__vuex_modules_ui_module__["a" /* default */],
+    user: __WEBPACK_IMPORTED_MODULE_4__vuex_modules_user_module__["a" /* default */]
   }
 });
 
@@ -49095,7 +49098,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding-top: 56px;\n  font-size: 16px;\n}\n#app-side-nav .nav-item {\n    width: 250px;\n    padding: 5px 0;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n        color: #afb4ba;\n}\n#app-side-nav .nav-item .nav-link.nav-link-dropdown:after {\n        float: right;\n        font-family: 'FontAwesome';\n}\n#app-side-nav .nav-item .nav-link.nav-link-dropdown.collapsed:after {\n        content: '\\F105';\n}\n#app-side-nav .nav-item .nav-link.nav-link-dropdown:not(.collapsed):after {\n        content: '\\F107';\n}\n#app-side-nav .nav-item .nav-link i.fa {\n        margin-right: 5px;\n}\n", ""]);
+exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding-top: 56px;\n  font-size: 16px;\n}\n#app-side-nav.open {\n    width: 250px;\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown:after {\n      float: right;\n      font-family: 'FontAwesome';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown.collapsed:after {\n      content: '\\F105';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown:not(.collapsed):after {\n      content: '\\F107';\n}\n#app-side-nav.open .nav-item .nav-link i.fa {\n      margin-right: 5px;\n}\n#app-side-nav:not(.open) .nav-link-label {\n    display: none;\n}\n#app-side-nav .nav-item {\n    padding: 5px 0;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n        color: #afb4ba;\n}\n", ""]);
 
 // exports
 
@@ -49106,6 +49109,24 @@ exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(6);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49190,7 +49211,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])('ui', ['side_nav'])),
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('ui', ['toggleSideNav']))
+});
 
 /***/ }),
 /* 57 */
@@ -49200,7 +49226,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "ul",
+    {
+      staticClass:
+        "navbar-nav navbar-sidenav navbar-dark bg-primary px-3 h-100 d-flex flex-column",
+      class: { open: _vm.side_nav.is_open },
+      attrs: { id: "app-side-nav" }
+    },
+    [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -49208,102 +49243,108 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "ul",
+      "li",
       {
-        staticClass:
-          "navbar-nav navbar-sidenav navbar-dark bg-primary px-3 h-100 d-flex flex-column",
-        attrs: { id: "app-side-nav" }
+        staticClass: "nav-item",
+        attrs: {
+          "data-toggle": "tooltip",
+          "data-placement": "right",
+          title: "Item 1"
+        }
+      },
+      [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-fw fa-ambulance" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "nav-link-label" }, [_vm._v("Item 1")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      {
+        staticClass: "nav-item",
+        attrs: {
+          "data-toggle": "tooltip",
+          "data-placement": "right",
+          title: "Item 2"
+        }
       },
       [
         _c(
-          "li",
+          "a",
           {
-            staticClass: "nav-item",
+            staticClass: "nav-link nav-link-dropdown collapsed",
             attrs: {
-              "data-toggle": "tooltip",
-              "data-placement": "right",
-              title: "Item 1"
+              href: "#app-side-nav-item2",
+              "data-toggle": "collapse",
+              "aria-expanded": "false",
+              "aria-controls": "app-side-nav-item2"
             }
           },
           [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fa fa-fw fa-ambulance" }),
-              _vm._v(" "),
-              _c("span", { staticClass: "side-nav-text" }, [_vm._v("Item 1")])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "nav-item",
-            attrs: {
-              "data-toggle": "tooltip",
-              "data-placement": "right",
-              title: "Item 2"
-            }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link nav-link-dropdown collapsed",
-                attrs: {
-                  href: "#app-side-nav-item2",
-                  "data-toggle": "collapse",
-                  "aria-expanded": "false",
-                  "aria-controls": "app-side-nav-item2"
-                }
-              },
-              [
-                _c("i", { staticClass: "fa fa-fw fa-archive" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "side-nav-text" }, [_vm._v("Item 2")])
-              ]
-            ),
+            _c("i", { staticClass: "fa fa-fw fa-archive" }),
             _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "collapse list-unstyled",
-                attrs: { id: "app-side-nav-item2" }
-              },
-              [
-                _c("li", { staticClass: "nav-item pl-5" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("\n                    Create\n                ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item pl-5" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("\n                    Search\n                ")
-                  ])
-                ])
-              ]
-            )
+            _c("span", { staticClass: "nav-link-label" }, [_vm._v("Item 2")])
           ]
         ),
         _vm._v(" "),
         _c(
-          "li",
+          "ul",
           {
-            staticClass: "nav-item",
-            attrs: {
-              "data-toggle": "tooltip",
-              "data-placement": "right",
-              title: "Item 3"
-            }
+            staticClass: "collapse list-unstyled",
+            attrs: { id: "app-side-nav-item2" }
           },
           [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fa fa-fw fa-bicycle" }),
-              _vm._v(" "),
-              _c("span", { staticClass: "side-nav-text" }, [_vm._v("Item 3")])
+            _c("li", { staticClass: "nav-item pl-5" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-fw fa-plus" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav-link-label" }, [
+                  _vm._v("Create")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item pl-5" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-fw fa-search" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "nav-link-label" }, [
+                  _vm._v("Search")
+                ])
+              ])
             ])
           ]
         )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      {
+        staticClass: "nav-item",
+        attrs: {
+          "data-toggle": "tooltip",
+          "data-placement": "right",
+          title: "Item 3"
+        }
+      },
+      [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-fw fa-bicycle" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "nav-link-label" }, [_vm._v("Item 3")])
+        ])
       ]
     )
   }
@@ -52158,7 +52199,7 @@ if (false) {
 
 
 var state = {
-    authenticated: false,
+    is_authenticated: false,
     details: null
 };
 
@@ -52211,7 +52252,7 @@ var actions = {
 "use strict";
 var mutations = {
     UPDATE_AUTH_STATUS: function UPDATE_AUTH_STATUS(state, authenticated) {
-        Vue.set(state, 'authenticated', authenticated);
+        Vue.set(state, 'is_authenticated', authenticated);
     },
     UPDATE_USER_DETAILS: function UPDATE_USER_DETAILS(state, details) {
         Vue.set(state, 'details', details);
@@ -52225,6 +52266,86 @@ var mutations = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__getters__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__actions__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mutations__ = __webpack_require__(83);
+
+
+
+
+var state = {
+    side_nav: {
+        is_open: true
+    }
+};
+
+var uiModule = {
+    namespaced: true,
+    state: state,
+    getters: __WEBPACK_IMPORTED_MODULE_0__getters__["a" /* default */],
+    actions: __WEBPACK_IMPORTED_MODULE_1__actions__["a" /* default */],
+    mutations: __WEBPACK_IMPORTED_MODULE_2__mutations__["a" /* default */]
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (uiModule);
+
+/***/ }),
+/* 81 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var getters = {};
+
+/* harmony default export */ __webpack_exports__["a"] = (getters);
+
+/***/ }),
+/* 82 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var actions = {
+    toggleSideNav: function toggleSideNav(_ref) {
+        var commit = _ref.commit,
+            state = _ref.state;
+        var open = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+        if (typeof open === "boolean") {
+            commit('SET_SIDE_NAV_OPEN', open);
+        } else {
+            commit('SET_SIDE_NAV_OPEN', !state.side_nav.open);
+        }
+    }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (actions);
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var mutations = {
+    SET_SIDE_NAV_OPEN: function SET_SIDE_NAV_OPEN(state, open) {
+        Vue.set(state.side_nav, 'is_open', open);
+    }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (mutations);
 
 /***/ })
 /******/ ]);

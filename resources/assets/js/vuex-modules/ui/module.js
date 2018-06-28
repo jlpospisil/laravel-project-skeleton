@@ -3,11 +3,12 @@ import actions from './actions';
 import mutations from './mutations';
 
 const state = {
-    is_authenticated: false,
-    details: null
+    side_nav: {
+        is_open: true
+    }
 };
 
-const userModule = {
+const uiModule = {
     namespaced: true,
     state,
     getters,
@@ -15,4 +16,4 @@ const userModule = {
     mutations
 };
 
-export default userModule;
+export default uiModule;

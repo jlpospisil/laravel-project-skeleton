@@ -4,9 +4,9 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-6 col-lg-4">
-                <div class="card-inverse rounded" style="background-color:rgba(0,0,0,.5)">
+                <div class="card rounded">
                     <div class="card-header">
-                        <h3 class="mb-0 text-center text-white">{{ config('app.name', 'Login') }}</h3>
+                        <h3 class="mb-0 text-center">{{ config('app.name', 'Login') }}</h3>
                     </div>
                     <div class="card-block px-3">
                         <form method="POST" action="{{ route('login') }}" class="form pb-3 pt-3">
@@ -31,25 +31,31 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group row justify-content-between">
-                                    <div class="col">
-                                        <label class="text-white">
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                    <div class="col text-right">
-                                        <input class="btn btn-lg btn-primary btn-sm" type="submit" value="Login">
-                                    </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                                    </label>
                                 </div>
+
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                    Login
+                                </button>
                             </fieldset>
                         </form>
                     </div>
                 </div>
 
-                <div class="text-center mt-1">
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
+                <div class="mt-1 row justify-content-between">
+                    <div class="col">
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            Forgot password?
+                        </a>
+                    </div>
+                    <div class="col text-right">
+                        <a class="btn btn-link" href="{{ route('register') }}">
+                            Register
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

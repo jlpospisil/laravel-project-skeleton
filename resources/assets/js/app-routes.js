@@ -4,6 +4,9 @@ import Test from './components/Test.vue';
 const Blank = { template: '<div></div>' }
 
 const routes = [
+    { path: '/login' },
+    { path: '/register' },
+    { path: '/password/reset' },
     {
         path: '/',
         component: Application,

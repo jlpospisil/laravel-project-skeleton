@@ -51690,7 +51690,7 @@ if (inBrowser && window.Vue) {
 
 var Blank = { template: '<div></div>' };
 
-var routes = [{
+var routes = [{ path: '/login' }, { path: '/register' }, { path: '/password/reset' }, {
     path: '/',
     component: __WEBPACK_IMPORTED_MODULE_0__components_Application_vue___default.a,
     children: [{ path: '/', component: Blank }, { path: '/test', component: __WEBPACK_IMPORTED_MODULE_1__components_Test_vue___default.a }, { path: '*', redirect: '/' }]

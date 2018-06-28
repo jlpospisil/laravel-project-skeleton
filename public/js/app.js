@@ -49246,8 +49246,32 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            tooltips: null
+        };
+    },
+
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])('ui', ['side_nav'])),
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('ui', ['toggleSideNav']))
+    watch: {
+        'side_nav.is_open': function side_navIs_open() {
+            this.adjustTooltips();
+        }
+    },
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])('ui', ['toggleSideNav']), {
+        adjustTooltips: function adjustTooltips() {
+            if (this.side_nav.is_open) {
+                this.tooltips.tooltip('disable');
+            } else {
+                this.tooltips.tooltip('enable');
+            }
+        }
+    }),
+    mounted: function mounted() {
+        this.tooltips = $('#app-side-nav [data-toggle="tooltip"]');
+        this.tooltips.tooltip({ trigger: 'hover' });
+        this.adjustTooltips();
+    }
 });
 
 /***/ }),
@@ -49274,7 +49298,7 @@ var render = function() {
           attrs: {
             "data-toggle": "tooltip",
             "data-placement": "right",
-            title: "Item 1"
+            "data-original-title": "Item 1"
           }
         },
         [
@@ -49298,7 +49322,7 @@ var render = function() {
           attrs: {
             "data-toggle": "tooltip",
             "data-placement": "right",
-            title: "Item 2"
+            "data-original-title": "Item 2"
           }
         },
         [
@@ -49314,7 +49338,14 @@ var render = function() {
             [
               _c(
                 "li",
-                { staticClass: "nav-item" },
+                {
+                  staticClass: "nav-item",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "right",
+                    "data-original-title": "Create item 2"
+                  }
+                },
                 [
                   _c(
                     "router-link",
@@ -49333,7 +49364,14 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "li",
-                { staticClass: "nav-item" },
+                {
+                  staticClass: "nav-item",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-placement": "right",
+                    "data-original-title": "Search item 2"
+                  }
+                },
                 [
                   _c(
                     "router-link",
@@ -49361,7 +49399,7 @@ var render = function() {
           attrs: {
             "data-toggle": "tooltip",
             "data-placement": "right",
-            title: "Item 3"
+            "data-original-title": "Item 3"
           }
         },
         [

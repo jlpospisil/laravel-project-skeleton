@@ -1,20 +1,25 @@
 ## Installation
 
+##### Environment variables
+copy the example env file and then edit the database connection details
+```env
+cp .env.example to .env
+```
+
 ##### Dependencies
 ```bash
 composer install --prefer-dist
+php artisan key:generate
 php artisan migrate
-npm install
-npm run dev
 ```
 
-## Create User
-php artisan tinker
-```tinker
-$user = new User;
-$user->username = 'admin';
-$user->email = 'admin@localhost';
-$user->name = 'Admin';
-$user->password = bcrypt('password');
-$user->save();
+
+## Run the application
+```artisan
+php artisan serve
+```
+
+## View the application
+```app
+http://localhost:8000
 ```

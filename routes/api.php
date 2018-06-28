@@ -1,3 +1,3 @@
 <?php
 
-Route::post('/{document_type}', 'API\DocumentController@saveDocument');
+//Route::post('/{document_type}', 'ApiControllers\ExampleController@exampleMethod');

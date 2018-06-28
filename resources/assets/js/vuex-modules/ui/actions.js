@@ -4,7 +4,7 @@ let actions = {
             commit('SET_SIDE_NAV_OPEN', open);
         }
         else {
-            commit('SET_SIDE_NAV_OPEN', !state.side_nav.open);
+            commit('SET_SIDE_NAV_OPEN', !state.side_nav.is_open);
         }
     }
 };

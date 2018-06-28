@@ -20,9 +20,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <router-link to="/test" class="dropdown-item">
-                                <i class="fa fa-fw fa-question"></i>
-                                Test
+                            <router-link to="/" class="dropdown-item">
+                                <i class="fa fa-fw fa-cog"></i>
+                                Settings
                             </router-link>
 
                             <a class="dropdown-item" href="/logout">

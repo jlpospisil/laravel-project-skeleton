@@ -1,5 +1,5 @@
 import Application from './components/Application.vue';
-import Test from './components/Test.vue';
+import TestItem from './components/TestItem.vue';
 
 const Blank = { template: '<div></div>' }
 
@@ -14,7 +14,10 @@ const routes = [
         component: Application,
         children: [
             { path: '/', component: Blank },
-            { path: '/test', component: Test },
+            { path: '/item1', component: TestItem, props: { item: "Item 1" } },
+            { path: '/item2/create', component: TestItem, props: { item: "Item 2 create" } },
+            { path: '/item2/search', component: TestItem, props: { item: "Item 2 search" } },
+            { path: '/item3', component: TestItem, props: { item: "Item 3" } },
             { path: '*', redirect: '/' }
         ]
     }

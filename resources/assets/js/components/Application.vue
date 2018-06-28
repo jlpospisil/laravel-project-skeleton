@@ -1,10 +1,9 @@
 <template>
     <div>
         <TopNav></TopNav>
+        <SideNav></SideNav>
 
-        <div id="app-content" class="container">
-            <SideNav></SideNav>
-
+        <div id="app-content" class="container" :class="{'side-nav-open': side_nav.is_open }">
             <router-view></router-view>
         </div>
     </div>
@@ -15,11 +14,16 @@
 
     #app-content {
         padding-top: $top-nav-height;
+        padding-left: $side-nav-width-collapsed;
+
+        &.side-nav-open {
+            padding-left: $side-nav-width-expanded;
+        }
     }
 </style>
 
 <script>
-    import {mapActions} from 'vuex';
+    import {mapState, mapActions} from 'vuex';
     import TopNav from './ui/TopNav.vue';
     import SideNav from './ui/SideNav.vue';
 
@@ -27,6 +31,9 @@
         components: {
             TopNav,
             SideNav
+        },
+        computed: {
+            ...mapState('ui', ['side_nav'])
         },
         methods: {
             ...mapActions('user', ['getUserDetails'])

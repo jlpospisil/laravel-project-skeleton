@@ -7,8 +7,8 @@ Auth::routes();
 Route::any('/logout', 'Auth\LoginController@logout');
 
 // Override registration routes to disable registration
-Route::get('/register', $redirect_to_root)->name('register');
-Route::any('/register', $redirect_to_root);
+//Route::get('/register', $redirect_to_root)->name('register');
+//Route::any('/register', $redirect_to_root);
 
 // Routes from axios requests from vue
 Route::get('/user', 'WebControllers\UserController@getUserDetails');

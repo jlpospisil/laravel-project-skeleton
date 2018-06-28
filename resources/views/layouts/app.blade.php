@@ -18,10 +18,8 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app" class="d-flex flex-column">
-    <main class="py-2 flex-fill">
-        @yield('content')
-    </main>
+<div id="app">
+    @yield('content')
 </div>
 </body>
 <script src="{{ mix ('js/app.js') }}"></script>

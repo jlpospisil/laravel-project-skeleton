@@ -2,7 +2,7 @@
     <div>
         <TopNav></TopNav>
 
-        <main class="container">
+        <main id="app-content" class="container">
             <router-view></router-view>
         </main>
     </div>
@@ -10,6 +10,10 @@
 
 <style lang="scss">
     @import '../../sass/_variables';
+
+    #app-content {
+        padding-top: 60px;
+    }
 </style>
 
 <script>

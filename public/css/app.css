@@ -13477,3 +13477,8 @@ body {
   width: 100vw;
 }
 
+#app .dropdown-menu.bg-primary .dropdown-item:hover,
+#app .dropdown-menu.bg-primary .dropdown-item:focus {
+  background-color: #222629;
+}
+

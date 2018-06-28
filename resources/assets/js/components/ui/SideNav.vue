@@ -50,7 +50,6 @@
     @import '../../../sass/_variables';
 
     $left-nav-font-color: #868e96;
-    $dark-primary: darken($primary-color, 5%);
 
     #app-side-nav {
         position: absolute;

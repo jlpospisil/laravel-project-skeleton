@@ -48942,13 +48942,17 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "dropdown-menu dropdown-menu-right",
+                      staticClass:
+                        "dropdown-menu dropdown-menu-right bg-primary",
                       attrs: { "aria-labelledby": "navbarDropdown" }
                     },
                     [
                       _c(
                         "router-link",
-                        { staticClass: "dropdown-item", attrs: { to: "/" } },
+                        {
+                          staticClass: "dropdown-item text-white",
+                          attrs: { to: "/" }
+                        },
                         [
                           _c("i", { staticClass: "fa fa-fw fa-cog" }),
                           _vm._v(
@@ -48997,7 +49001,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "a",
-      { staticClass: "dropdown-item", attrs: { href: "/logout" } },
+      { staticClass: "dropdown-item text-white", attrs: { href: "/logout" } },
       [
         _c("i", { staticClass: "fa fa-fw fa-sign-out" }),
         _vm._v("\n                            Logout\n                        ")
@@ -49100,7 +49104,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 56px 0 0 0;\n  font-size: 16px;\n}\n#app-side-nav.open .nav-item {\n    width: 250px;\n}\n#app-side-nav.open .nav-item .nav-item {\n      padding-left: 2rem;\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:after {\n      float: right;\n      font-family: 'FontAwesome';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle.collapsed:after {\n      content: '\\F105';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:not(.collapsed):after {\n      content: '\\F107';\n}\n#app-side-nav.open .nav-item .nav-link i.fa {\n      margin-right: 5px;\n}\n#app-side-nav:not(.open) .nav-link-label {\n    display: none;\n}\n#app-side-nav:not(.open) .nav-link-dropdown.show, #app-side-nav:not(.open) .nav-link-dropdown.collapsing {\n    position: absolute;\n    top: 0;\n    left: 50px;\n}\n#app-side-nav:not(.open) .nav-link-dropdown.show .nav-item:not(:first-child), #app-side-nav:not(.open) .nav-link-dropdown.collapsing .nav-item:not(:first-child) {\n      border-left: 1px solid #292d32;\n}\n#app-side-nav .nav-item {\n    padding: 5px 15px;\n}\n#app-side-nav .nav-item.menu-toggler {\n      background-color: #292d32;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n        color: #afb4ba;\n}\n", ""]);
+exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 56px 0 0 0;\n  font-size: 16px;\n}\n#app-side-nav.open .nav-item {\n    width: 250px;\n}\n#app-side-nav.open .nav-item .nav-item {\n      padding-left: 2rem;\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:after {\n      float: right;\n      font-family: 'FontAwesome';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle.collapsed:after {\n      content: '\\F105';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:not(.collapsed):after {\n      content: '\\F107';\n}\n#app-side-nav.open .nav-item .nav-link i.fa {\n      margin-right: 5px;\n}\n#app-side-nav:not(.open) .nav-link-label {\n    display: none;\n}\n#app-side-nav:not(.open) .nav-link-dropdown.show, #app-side-nav:not(.open) .nav-link-dropdown.collapsing {\n    position: absolute;\n    top: 0;\n    left: 50px;\n}\n#app-side-nav:not(.open) .nav-link-dropdown.show .nav-item:not(:first-child), #app-side-nav:not(.open) .nav-link-dropdown.collapsing .nav-item:not(:first-child) {\n      border-left: 1px solid #222629;\n}\n#app-side-nav .nav-item {\n    padding: 5px 15px;\n}\n#app-side-nav .nav-item.menu-toggler {\n      background-color: #222629;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n        color: #afb4ba;\n}\n", ""]);
 
 // exports
 
@@ -49114,7 +49118,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(6);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-//
 //
 //
 //

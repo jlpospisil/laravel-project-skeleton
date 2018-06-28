@@ -1,5 +1,7 @@
 // Customize bootstrap
 $primary-color: #343a40;
+$dark-primary: darken($primary-color, 8%);
+$bg-primary-text-color: #ffffff;
 
 $theme-colors: (
   "primary": $primary-color

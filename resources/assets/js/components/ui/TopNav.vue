@@ -19,13 +19,13 @@
                             <span class="caret"></span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <router-link to="/" class="dropdown-item">
+                        <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
+                            <router-link to="/" class="dropdown-item text-white">
                                 <i class="fa fa-fw fa-cog"></i>
                                 Settings
                             </router-link>
 
-                            <a class="dropdown-item" href="/logout">
+                            <a class="dropdown-item text-white" href="/logout">
                                 <i class="fa fa-fw fa-sign-out"></i>
                                 Logout
                             </a>

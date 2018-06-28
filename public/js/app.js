@@ -49095,7 +49095,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding-top: 56px;\n  font-size: 16px;\n}\n#app-side-nav .nav-item {\n    width: 250px;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n", ""]);
+exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding-top: 56px;\n  font-size: 16px;\n}\n#app-side-nav .nav-item {\n    width: 250px;\n    padding: 5px 0;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n        color: #afb4ba;\n}\n#app-side-nav .nav-item .nav-link.nav-link-dropdown:after {\n        float: right;\n        font-family: 'FontAwesome';\n}\n#app-side-nav .nav-item .nav-link.nav-link-dropdown.collapsed:after {\n        content: '\\F105';\n}\n#app-side-nav .nav-item .nav-link.nav-link-dropdown:not(.collapsed):after {\n        content: '\\F107';\n}\n#app-side-nav .nav-item .nav-link i.fa {\n        margin-right: 5px;\n}\n", ""]);
 
 // exports
 
@@ -49106,6 +49106,46 @@ exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49182,25 +49222,44 @@ var staticRenderFns = [
             attrs: {
               "data-toggle": "tooltip",
               "data-placement": "right",
-              title: "Orders"
+              title: "Item 1"
+            }
+          },
+          [
+            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+              _c("i", { staticClass: "fa fa-fw fa-ambulance" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "side-nav-text" }, [_vm._v("Item 1")])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "nav-item",
+            attrs: {
+              "data-toggle": "tooltip",
+              "data-placement": "right",
+              title: "Item 2"
             }
           },
           [
             _c(
               "a",
               {
-                staticClass: "nav-link nav-link-collapse",
+                staticClass: "nav-link nav-link-dropdown collapsed",
                 attrs: {
-                  href: "#app-side-nav-orders",
+                  href: "#app-side-nav-item2",
                   "data-toggle": "collapse",
                   "aria-expanded": "false",
-                  "aria-controls": "app-side-nav-orders"
+                  "aria-controls": "app-side-nav-item2"
                 }
               },
               [
-                _c("i", { staticClass: "fa fa-fw fa-archive mr-2" }),
+                _c("i", { staticClass: "fa fa-fw fa-archive" }),
                 _vm._v(" "),
-                _c("span", { staticClass: "side-nav-text" }, [_vm._v("Orders")])
+                _c("span", { staticClass: "side-nav-text" }, [_vm._v("Item 2")])
               ]
             ),
             _vm._v(" "),
@@ -49208,7 +49267,7 @@ var staticRenderFns = [
               "ul",
               {
                 staticClass: "collapse list-unstyled",
-                attrs: { id: "app-side-nav-orders" }
+                attrs: { id: "app-side-nav-item2" }
               },
               [
                 _c("li", { staticClass: "nav-item pl-5" }, [
@@ -49224,6 +49283,25 @@ var staticRenderFns = [
                 ])
               ]
             )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "nav-item",
+            attrs: {
+              "data-toggle": "tooltip",
+              "data-placement": "right",
+              title: "Item 3"
+            }
+          },
+          [
+            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+              _c("i", { staticClass: "fa fa-fw fa-bicycle" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "side-nav-text" }, [_vm._v("Item 3")])
+            ])
           ]
         )
       ]

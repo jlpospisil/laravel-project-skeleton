@@ -95,8 +95,8 @@
                 .nav-link {
                     &[aria-expanded="true"] {
                         color: $side-nav-active-font-color;
-                        border-top: 1px solid $dark-primary;
-                        border-bottom: 1px solid $dark-primary;
+                        border-top-color: $dark-primary;
+                        border-bottom-color: $dark-primary;
                     }
                 }
             }
@@ -138,6 +138,8 @@
 
             .nav-link {
                 color: $side-nav-font-color;
+                border-top: 1px solid transparent;
+                border-bottom: 1px solid transparent;
                 padding: 5px 15px;
 
                 &:hover, &:focus {

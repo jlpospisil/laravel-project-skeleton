@@ -13,13 +13,18 @@
 
 <style lang="scss">
     @import '../../sass/_variables';
+    @import '~bootstrap/scss/bootstrap';
 
     #app-content {
         padding-top: $top-nav-height;
         padding-left: $side-nav-width-collapsed;
+    }
 
-        &.side-nav-open {
-            padding-left: $side-nav-width-expanded;
+    @include media-breakpoint-up(sm) {
+        #app-content {
+            &.side-nav-open {
+                padding-left: $side-nav-width-expanded;
+            }
         }
     }
 </style>

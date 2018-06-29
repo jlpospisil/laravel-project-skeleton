@@ -100,9 +100,23 @@
                     top: 0;
                     left: $side-nav-width-collapsed;
 
-                    .nav-item:not(:first-child) {
-                        border-left: 1px solid $dark-primary;
+                    /*
+                    .nav-item {
+                        border-right: 1px solid $dark-primary;
+
+                        &:first-child {
+                            border-top: 1px solid $dark-primary;
+                        }
+
+                        &:not(:first-child) {
+                            border-left: 1px solid $dark-primary;
+                        }
+
+                        &:last-child {
+                            border-bottom: 1px solid $dark-primary;
+                        }
                     }
+                    */
                 }
             }
         }
@@ -157,6 +171,7 @@
         mounted () {
             this.tooltips = $('#app-side-nav [data-toggle="tooltip"]');
             this.tooltips.tooltip({ trigger : 'hover' });
+            this.tooltips.on('mouseover mouseleave', event => { event.stopPropagation() });
             this.adjustTooltips()
         }
     }

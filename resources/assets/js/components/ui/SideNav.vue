@@ -45,7 +45,7 @@
         <li class="flex-fill"></li>
 
         <!-- Menu toggler -->
-        <li class="nav-item menu-toggler" @click="toggleSideNav()">
+        <li class="nav-item side-nav-toggle" @click="toggleSideNav()">
             <a class="nav-link text-right" href="#">
                 <i class="fa fa-fw fa-arrow-left" v-if="side_nav.is_open"></i>
                 <i class="fa fa-fw fa-arrow-right" v-else></i>
@@ -141,7 +141,7 @@
         }
 
         .nav-item {
-            &.menu-toggler {
+            &.side-nav-toggle {
                 background-color: $dark-primary;
             }
 
@@ -215,7 +215,8 @@
             this.dropdown_toggles = this.navigation.find('.nav-link-dropdown-toggle');
 
             // Add event handlers
-            this.navigation.find('.nav-link').on('click', this.navLinkClicked);
+            const nav_toggle_link = this.navigation.find('.side-nav-toggle > a');
+            this.navigation.find('.nav-link').not(nav_toggle_link).on('click', this.navLinkClicked);
 
             // General setup
             this.adjustTooltips();

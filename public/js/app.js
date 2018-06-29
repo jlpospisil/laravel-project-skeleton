@@ -48713,6 +48713,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
 
 
 
@@ -49506,12 +49508,10 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "container",
           class: { "side-nav-open": _vm.side_nav.is_open },
           attrs: { id: "app-content" }
         },
-        [_c("router-view")],
-        1
+        [_c("div", { staticClass: "p-2" }, [_c("router-view")], 1)]
       )
     ],
     1

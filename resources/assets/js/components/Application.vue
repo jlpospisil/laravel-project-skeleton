@@ -3,8 +3,10 @@
         <TopNav></TopNav>
         <SideNav></SideNav>
 
-        <div id="app-content" class="container" :class="{'side-nav-open': side_nav.is_open }">
-            <router-view></router-view>
+        <div id="app-content" :class="{'side-nav-open': side_nav.is_open }">
+            <div class="p-2">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>

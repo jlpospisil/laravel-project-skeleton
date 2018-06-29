@@ -121,6 +121,11 @@
 
                         &:first-child {
                             border-top: 1px solid $dark-primary;
+
+                            .nav-link {
+                                border-top: none;
+                                border-bottom: none;
+                            }
                         }
 
                         &:not(:first-child) {

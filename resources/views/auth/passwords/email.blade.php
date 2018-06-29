@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col">
                                         <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                            Send Reset Link
+                                            Send Link
                                         </button>
                                     </div>
                                 </div>

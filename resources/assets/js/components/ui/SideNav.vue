@@ -186,6 +186,7 @@
             ...mapActions('ui', ['toggleSideNav']),
 
             adjustTooltips () {
+                // Disable tooltips when nav is expanded
                 if (this.side_nav.is_open) {
                     this.tooltips.tooltip('disable');
                 }
@@ -196,9 +197,15 @@
 
             navLinkClicked (event) {
                 const el = $(event.target);
+
+                // If nav is expanded, only have 1 open dropdown at a time
+                // If it is collapsed, close all dropdowns when an option is selected
                 if (el.is('.nav-link-dropdown-toggle') || !this.side_nav.is_open) {
                     this.dropdown_toggles.not(el).filter('[aria-expanded="true"]').click();
                 }
+
+                // Manually hide tooltips to accommodate touch screens
+                this.tooltips.tooltip('hide');
             }
         },
         mounted () {

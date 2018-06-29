@@ -52,8 +52,6 @@
 <style lang="scss">
     @import '../../../sass/_variables';
 
-    $left-nav-font-color: #868e96;
-
     #app-side-nav {
         position: absolute;
         top: 0;
@@ -93,6 +91,16 @@
         }
 
         &:not(.open) {
+            .nav-item {
+                .nav-link {
+                    &[aria-expanded="true"] {
+                        color: $side-nav-active-font-color;
+                        border-top: 1px solid $dark-primary;
+                        border-bottom: 1px solid $dark-primary;
+                    }
+                }
+            }
+
             .nav-link-label {
                 display: none;
             }
@@ -103,7 +111,7 @@
                     top: 0;
                     left: $side-nav-width-collapsed;
 
-                    /*
+
                     .nav-item {
                         border-right: 1px solid $dark-primary;
 
@@ -119,7 +127,6 @@
                             border-bottom: 1px solid $dark-primary;
                         }
                     }
-                    */
                 }
             }
         }
@@ -130,11 +137,11 @@
             }
 
             .nav-link {
-                color: $left-nav-font-color;
+                color: $side-nav-font-color;
                 padding: 5px 15px;
-                
+
                 &:hover, &:focus {
-                    color: lighten($left-nav-font-color, 15%);
+                    color: $side-nav-active-font-color;
                 }
             }
         }

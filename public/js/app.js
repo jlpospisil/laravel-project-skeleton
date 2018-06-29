@@ -49104,7 +49104,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 56px 0 0 0;\n  font-size: 16px;\n}\n#app-side-nav.open .nav-item {\n    width: 250px;\n}\n#app-side-nav.open .nav-item .nav-item {\n      padding-left: 2rem;\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:after {\n      float: right;\n      font-family: 'FontAwesome';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle.collapsed:after {\n      content: '\\F105';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:not(.collapsed):after {\n      content: '\\F107';\n}\n#app-side-nav.open .nav-item .nav-link i.fa {\n      margin-right: 5px;\n}\n#app-side-nav:not(.open) .nav-link-label {\n    display: none;\n}\n#app-side-nav:not(.open) .nav-link-dropdown.show, #app-side-nav:not(.open) .nav-link-dropdown.collapsing {\n    position: absolute;\n    top: 0;\n    left: 50px;\n    /*\n                .nav-item {\n                    border-right: 1px solid $dark-primary;\n\n                    &:first-child {\n                        border-top: 1px solid $dark-primary;\n                    }\n\n                    &:not(:first-child) {\n                        border-left: 1px solid $dark-primary;\n                    }\n\n                    &:last-child {\n                        border-bottom: 1px solid $dark-primary;\n                    }\n                }\n                */\n}\n#app-side-nav .nav-item {\n    padding: 5px 15px;\n}\n#app-side-nav .nav-item.menu-toggler {\n      background-color: #222629;\n}\n#app-side-nav .nav-item .nav-link {\n      color: #868e96;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n        color: #afb4ba;\n}\n", ""]);
+exports.push([module.i, "\n#app-side-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 56px 0 0 0;\n  font-size: 16px;\n}\n#app-side-nav.open .nav-item {\n    width: 250px;\n}\n#app-side-nav.open .nav-item .nav-item {\n      padding-left: 2rem;\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:after {\n      float: right;\n      font-family: 'FontAwesome';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle.collapsed:after {\n      content: '\\F105';\n}\n#app-side-nav.open .nav-item .nav-link.nav-link-dropdown-toggle:not(.collapsed):after {\n      content: '\\F107';\n}\n#app-side-nav.open .nav-item .nav-link i.fa {\n      margin-right: 5px;\n}\n#app-side-nav:not(.open) .nav-link-label {\n    display: none;\n}\n#app-side-nav:not(.open) .nav-link-dropdown.show, #app-side-nav:not(.open) .nav-link-dropdown.collapsing {\n    position: absolute;\n    top: 0;\n    left: 50px;\n    /*\n                .nav-item {\n                    border-right: 1px solid $dark-primary;\n\n                    &:first-child {\n                        border-top: 1px solid $dark-primary;\n                    }\n\n                    &:not(:first-child) {\n                        border-left: 1px solid $dark-primary;\n                    }\n\n                    &:last-child {\n                        border-bottom: 1px solid $dark-primary;\n                    }\n                }\n                */\n}\n#app-side-nav .nav-item.menu-toggler {\n    background-color: #222629;\n}\n#app-side-nav .nav-item .nav-link {\n    color: #868e96;\n    padding: 5px 15px;\n}\n#app-side-nav .nav-item .nav-link:hover, #app-side-nav .nav-item .nav-link:focus {\n      color: #afb4ba;\n}\n", ""]);
 
 // exports
 
@@ -49118,6 +49118,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(3);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
 //
 //
 //
@@ -49285,11 +49287,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         }
     }),
     mounted: function mounted() {
-        this.tooltips = $('#app-side-nav [data-toggle="tooltip"]');
+        this.tooltips = $('#app-side-nav [side-nav-tooltip]');
         this.tooltips.tooltip({ trigger: 'hover' });
-        this.tooltips.on('mouseover mouseleave', function (event) {
-            event.stopPropagation();
-        });
         this.adjustTooltips();
     }
 });
@@ -49313,18 +49312,19 @@ var render = function() {
     [
       _c(
         "li",
-        {
-          staticClass: "nav-item",
-          attrs: {
-            "data-toggle": "tooltip",
-            "data-placement": "right",
-            "data-original-title": "Item 1"
-          }
-        },
+        { staticClass: "nav-item" },
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: "/item1" } },
+            {
+              staticClass: "nav-link",
+              attrs: {
+                to: "/item1",
+                "side-nav-tooltip": "",
+                "data-placement": "right",
+                "data-original-title": "Item 1"
+              }
+            },
             [
               _c("i", { staticClass: "fa fa-fw fa-ambulance" }),
               _vm._v(" "),
@@ -49335,97 +49335,86 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "li",
-        {
-          staticClass: "nav-item position-relative",
-          attrs: {
-            "data-toggle": "tooltip",
-            "data-placement": "right",
-            "data-original-title": "Item 2"
-          }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              staticClass:
-                "collapse list-unstyled nav-link-dropdown bg-primary",
-              attrs: { id: "app-side-nav-item2" }
-            },
-            [
-              _c(
-                "li",
-                {
-                  staticClass: "nav-item",
-                  attrs: {
-                    "data-toggle": "tooltip",
-                    "data-placement": "right",
-                    "data-original-title": "Create item 2"
-                  }
-                },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link", attrs: { to: "/item2/create" } },
-                    [
-                      _c("i", { staticClass: "fa fa-fw fa-plus" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "nav-link-label" }, [
-                        _vm._v("Create")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "nav-item",
-                  attrs: {
-                    "data-toggle": "tooltip",
-                    "data-placement": "right",
-                    "data-original-title": "Search item 2"
-                  }
-                },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link", attrs: { to: "/item2/search" } },
-                    [
-                      _c("i", { staticClass: "fa fa-fw fa-search" }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "nav-link-label" }, [
-                        _vm._v("Search")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ]
-      ),
+      _c("li", { staticClass: "nav-item position-relative" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "ul",
+          {
+            staticClass: "collapse list-unstyled nav-link-dropdown bg-primary",
+            attrs: { id: "app-side-nav-item2" }
+          },
+          [
+            _c(
+              "li",
+              {
+                staticClass: "nav-item",
+                attrs: {
+                  "side-nav-tooltip": "",
+                  "data-placement": "right",
+                  "data-original-title": "Create item 2"
+                }
+              },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "nav-link", attrs: { to: "/item2/create" } },
+                  [
+                    _c("i", { staticClass: "fa fa-fw fa-plus" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "nav-link-label" }, [
+                      _vm._v("Create")
+                    ])
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "nav-item",
+                attrs: {
+                  "side-nav-tooltip": "",
+                  "data-placement": "right",
+                  "data-original-title": "Search item 2"
+                }
+              },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "nav-link", attrs: { to: "/item2/search" } },
+                  [
+                    _c("i", { staticClass: "fa fa-fw fa-search" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "nav-link-label" }, [
+                      _vm._v("Search")
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c(
         "li",
-        {
-          staticClass: "nav-item",
-          attrs: {
-            "data-toggle": "tooltip",
-            "data-placement": "right",
-            "data-original-title": "Item 3"
-          }
-        },
+        { staticClass: "nav-item" },
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: "/item3" } },
+            {
+              staticClass: "nav-link",
+              attrs: {
+                to: "/item3",
+                "side-nav-tooltip": "",
+                "data-placement": "right",
+                "data-original-title": "Item 3"
+              }
+            },
             [
               _c("i", { staticClass: "fa fa-fw fa-bicycle" }),
               _vm._v(" "),
@@ -49476,7 +49465,10 @@ var staticRenderFns = [
           href: "#app-side-nav-item2",
           "data-toggle": "collapse",
           "aria-expanded": "false",
-          "aria-controls": "app-side-nav-item2"
+          "aria-controls": "app-side-nav-item2",
+          "side-nav-tooltip": "",
+          "data-placement": "right",
+          "data-original-title": "Item 2"
         }
       },
       [

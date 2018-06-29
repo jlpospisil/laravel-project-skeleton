@@ -1,25 +1,28 @@
 <template>
     <ul id="app-side-nav" class="navbar-nav navbar-sidenav navbar-dark bg-primary h-100 d-flex flex-column" :class="{ open: side_nav.is_open }">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" data-original-title="Item 1">
-            <router-link to="/item1" class="nav-link">
+        <li class="nav-item">
+            <router-link to="/item1" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 1">
                 <i class="fa fa-fw fa-ambulance"></i>
                 <span class="nav-link-label">Item 1</span>
             </router-link>
         </li>
 
-        <li class="nav-item position-relative" data-toggle="tooltip" data-placement="right" data-original-title="Item 2">
-            <a class="nav-link nav-link-dropdown-toggle collapsed" href="#app-side-nav-item2" data-toggle="collapse" aria-expanded="false" aria-controls="app-side-nav-item2">
+        <li class="nav-item position-relative">
+            <a class="nav-link nav-link-dropdown-toggle collapsed" href="#app-side-nav-item2"
+               data-toggle="collapse" aria-expanded="false" aria-controls="app-side-nav-item2"
+               side-nav-tooltip data-placement="right" data-original-title="Item 2"
+           >
                 <i class="fa fa-fw fa-archive"></i>
                 <span class="nav-link-label">Item 2</span>
             </a>
             <ul class="collapse list-unstyled nav-link-dropdown bg-primary" id="app-side-nav-item2">
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" data-original-title="Create item 2">
+                <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Create item 2">
                     <router-link to="/item2/create" class="nav-link">
                         <i class="fa fa-fw fa-plus"></i>
                         <span class="nav-link-label">Create</span>
                     </router-link>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" data-original-title="Search item 2">
+                <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Search item 2">
                     <router-link to="/item2/search" class="nav-link">
                         <i class="fa fa-fw fa-search"></i>
                         <span class="nav-link-label">Search</span>
@@ -28,8 +31,8 @@
             </ul>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" data-original-title="Item 3">
-            <router-link to="/item3" class="nav-link">
+        <li class="nav-item">
+            <router-link to="/item3" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 3">
                 <i class="fa fa-fw fa-bicycle"></i>
                 <span class="nav-link-label">Item 3</span>
             </router-link>
@@ -122,15 +125,14 @@
         }
 
         .nav-item {
-            padding: 5px 15px;
-
             &.menu-toggler {
                 background-color: $dark-primary;
             }
 
             .nav-link {
                 color: $left-nav-font-color;
-
+                padding: 5px 15px;
+                
                 &:hover, &:focus {
                     color: lighten($left-nav-font-color, 15%);
                 }
@@ -169,9 +171,8 @@
             }
         },
         mounted () {
-            this.tooltips = $('#app-side-nav [data-toggle="tooltip"]');
+            this.tooltips = $('#app-side-nav [side-nav-tooltip]');
             this.tooltips.tooltip({ trigger : 'hover' });
-            this.tooltips.on('mouseover mouseleave', event => { event.stopPropagation() });
             this.adjustTooltips()
         }
     }

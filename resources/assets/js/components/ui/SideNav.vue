@@ -1,7 +1,7 @@
 <template>
     <ul id="app-side-nav" class="navbar-nav navbar-sidenav navbar-dark bg-primary h-100 d-flex flex-column" :class="{ open: side_nav.is_open }">
         <li class="nav-item">
-            <router-link to="/item1" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 1">
+            <router-link to="/item1" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 1" @click="navLinkClicked">
                 <i class="fa fa-fw fa-ambulance"></i>
                 <span class="nav-link-label">Item 1</span>
             </router-link>
@@ -11,19 +11,20 @@
             <a class="nav-link nav-link-dropdown-toggle collapsed" href="#app-side-nav-item2"
                data-toggle="collapse" aria-expanded="false" aria-controls="app-side-nav-item2"
                side-nav-tooltip data-placement="right" data-original-title="Item 2"
+               @click="navLinkClicked"
            >
                 <i class="fa fa-fw fa-archive"></i>
                 <span class="nav-link-label">Item 2</span>
             </a>
             <ul class="collapse list-unstyled nav-link-dropdown bg-primary" id="app-side-nav-item2">
                 <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Create item 2">
-                    <router-link to="/item2/create" class="nav-link">
+                    <router-link to="/item2/create" class="nav-link" @click="navLinkClicked">
                         <i class="fa fa-fw fa-plus"></i>
                         <span class="nav-link-label">Create</span>
                     </router-link>
                 </li>
                 <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Search item 2">
-                    <router-link to="/item2/search" class="nav-link">
+                    <router-link to="/item2/search" class="nav-link" @click="navLinkClicked">
                         <i class="fa fa-fw fa-search"></i>
                         <span class="nav-link-label">Search</span>
                     </router-link>
@@ -32,10 +33,35 @@
         </li>
 
         <li class="nav-item">
-            <router-link to="/item3" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 3">
+            <router-link to="/item3" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 3" @click="navLinkClicked">
                 <i class="fa fa-fw fa-bicycle"></i>
                 <span class="nav-link-label">Item 3</span>
             </router-link>
+        </li>
+
+        <li class="nav-item position-relative">
+            <a class="nav-link nav-link-dropdown-toggle collapsed" href="#app-side-nav-item4"
+               data-toggle="collapse" aria-expanded="false" aria-controls="app-side-nav-item4"
+               side-nav-tooltip data-placement="right" data-original-title="Item 4"
+               @click="navLinkClicked"
+            >
+                <i class="fa fa-fw fa-archive"></i>
+                <span class="nav-link-label">Item 2</span>
+            </a>
+            <ul class="collapse list-unstyled nav-link-dropdown bg-primary" id="app-side-nav-item4">
+                <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Create item 2">
+                    <router-link to="/item2/create" class="nav-link" @click="navLinkClicked">
+                        <i class="fa fa-fw fa-plus"></i>
+                        <span class="nav-link-label">Create</span>
+                    </router-link>
+                </li>
+                <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Search item 2">
+                    <router-link to="/item2/search" class="nav-link" @click="navLinkClicked">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="nav-link-label">Search</span>
+                    </router-link>
+                </li>
+            </ul>
         </li>
 
         <li class="flex-fill"></li>
@@ -94,7 +120,6 @@
             .nav-item {
                 .nav-link {
                     &[aria-expanded="true"] {
-                        color: $side-nav-active-font-color;
                         border-top-color: $dark-primary;
                         border-bottom-color: $dark-primary;
                     }
@@ -143,7 +168,7 @@
                 padding: 5px 15px;
 
                 &:hover, &:focus {
-                    color: $side-nav-active-font-color;
+                    color: lighten($side-nav-font-color, 10%);
                 }
             }
         }
@@ -156,7 +181,9 @@
     export default {
         data () {
             return {
-                tooltips: null
+                navigation: null,
+                tooltips: null,
+                dropdown_toggles: null
             }
         },
         computed: {
@@ -165,6 +192,10 @@
         watch: {
             'side_nav.is_open' () {
                 this.adjustTooltips();
+
+                if (!this.side_nav.is_open) {
+                    this.dropdown_toggles.filter('[aria-expanded="true"]').click()
+                }
             }
         },
         methods: {
@@ -177,12 +208,21 @@
                 else {
                     this.tooltips.tooltip('enable');
                 }
+            },
+
+            navLinkClicked (event) {
+                const el = $(event.target);
+                if (el.is('.nav-link-dropdown-toggle') || !this.side_nav.is_open) {
+                    this.dropdown_toggles.not(el).filter('[aria-expanded="true"]').click();
+                }
             }
         },
         mounted () {
-            this.tooltips = $('#app-side-nav [side-nav-tooltip]');
+            this.navigation = $('#app-side-nav');
+            this.tooltips = this.navigation.find('[side-nav-tooltip]');
             this.tooltips.tooltip({ trigger : 'hover' });
-            this.adjustTooltips()
+            this.dropdown_toggles = this.navigation.find('.nav-link-dropdown-toggle');
+            this.adjustTooltips();
         }
     }
 </script>

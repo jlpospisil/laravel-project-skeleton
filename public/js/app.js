@@ -49276,27 +49276,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -49339,6 +49318,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         this.tooltips = this.navigation.find('[side-nav-tooltip]');
         this.tooltips.tooltip({ trigger: 'hover' });
         this.dropdown_toggles = this.navigation.find('.nav-link-dropdown-toggle');
+
+        // Add event handlers
+        this.navigation.find('.nav-link').on('click', this.navLinkClicked);
+
+        // General setup
         this.adjustTooltips();
     }
 });
@@ -49373,8 +49357,7 @@ var render = function() {
                 "side-nav-tooltip": "",
                 "data-placement": "right",
                 "data-original-title": "Item 1"
-              },
-              on: { click: _vm.navLinkClicked }
+              }
             },
             [
               _c("i", { staticClass: "fa fa-fw fa-ambulance" }),
@@ -49387,27 +49370,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("li", { staticClass: "nav-item position-relative" }, [
-        _c(
-          "a",
-          {
-            staticClass: "nav-link nav-link-dropdown-toggle collapsed",
-            attrs: {
-              href: "#app-side-nav-item2",
-              "data-toggle": "collapse",
-              "aria-expanded": "false",
-              "aria-controls": "app-side-nav-item2",
-              "side-nav-tooltip": "",
-              "data-placement": "right",
-              "data-original-title": "Item 2"
-            },
-            on: { click: _vm.navLinkClicked }
-          },
-          [
-            _c("i", { staticClass: "fa fa-fw fa-archive" }),
-            _vm._v(" "),
-            _c("span", { staticClass: "nav-link-label" }, [_vm._v("Item 2")])
-          ]
-        ),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "ul",
@@ -49429,11 +49392,7 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: "/item2/create" },
-                    on: { click: _vm.navLinkClicked }
-                  },
+                  { staticClass: "nav-link", attrs: { to: "/item2/create" } },
                   [
                     _c("i", { staticClass: "fa fa-fw fa-plus" }),
                     _vm._v(" "),
@@ -49459,11 +49418,7 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: "/item2/search" },
-                    on: { click: _vm.navLinkClicked }
-                  },
+                  { staticClass: "nav-link", attrs: { to: "/item2/search" } },
                   [
                     _c("i", { staticClass: "fa fa-fw fa-search" }),
                     _vm._v(" "),
@@ -49492,8 +49447,7 @@ var render = function() {
                 "side-nav-tooltip": "",
                 "data-placement": "right",
                 "data-original-title": "Item 3"
-              },
-              on: { click: _vm.navLinkClicked }
+              }
             },
             [
               _c("i", { staticClass: "fa fa-fw fa-bicycle" }),
@@ -49504,99 +49458,6 @@ var render = function() {
         ],
         1
       ),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item position-relative" }, [
-        _c(
-          "a",
-          {
-            staticClass: "nav-link nav-link-dropdown-toggle collapsed",
-            attrs: {
-              href: "#app-side-nav-item4",
-              "data-toggle": "collapse",
-              "aria-expanded": "false",
-              "aria-controls": "app-side-nav-item4",
-              "side-nav-tooltip": "",
-              "data-placement": "right",
-              "data-original-title": "Item 4"
-            },
-            on: { click: _vm.navLinkClicked }
-          },
-          [
-            _c("i", { staticClass: "fa fa-fw fa-archive" }),
-            _vm._v(" "),
-            _c("span", { staticClass: "nav-link-label" }, [_vm._v("Item 2")])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "ul",
-          {
-            staticClass: "collapse list-unstyled nav-link-dropdown bg-primary",
-            attrs: { id: "app-side-nav-item4" }
-          },
-          [
-            _c(
-              "li",
-              {
-                staticClass: "nav-item",
-                attrs: {
-                  "side-nav-tooltip": "",
-                  "data-placement": "right",
-                  "data-original-title": "Create item 2"
-                }
-              },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: "/item2/create" },
-                    on: { click: _vm.navLinkClicked }
-                  },
-                  [
-                    _c("i", { staticClass: "fa fa-fw fa-plus" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "nav-link-label" }, [
-                      _vm._v("Create")
-                    ])
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass: "nav-item",
-                attrs: {
-                  "side-nav-tooltip": "",
-                  "data-placement": "right",
-                  "data-original-title": "Search item 2"
-                }
-              },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: "/item2/search" },
-                    on: { click: _vm.navLinkClicked }
-                  },
-                  [
-                    _c("i", { staticClass: "fa fa-fw fa-search" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "nav-link-label" }, [
-                      _vm._v("Search")
-                    ])
-                  ]
-                )
-              ],
-              1
-            )
-          ]
-        )
-      ]),
       _vm._v(" "),
       _c("li", { staticClass: "flex-fill" }),
       _vm._v(" "),
@@ -49625,7 +49486,33 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link nav-link-dropdown-toggle collapsed",
+        attrs: {
+          href: "#app-side-nav-item2",
+          "data-toggle": "collapse",
+          "aria-expanded": "false",
+          "aria-controls": "app-side-nav-item2",
+          "side-nav-tooltip": "",
+          "data-placement": "right",
+          "data-original-title": "Item 2"
+        }
+      },
+      [
+        _c("i", { staticClass: "fa fa-fw fa-archive" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "nav-link-label" }, [_vm._v("Item 2")])
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

@@ -15,7 +15,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown" v-if="user_details">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ user_details.name }}
+                            {{ user_details.first_name }} {{ user_details.last_name }}
                             <span class="caret"></span>
                         </a>
 

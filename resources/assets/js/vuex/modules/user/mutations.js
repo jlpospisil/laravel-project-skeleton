@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 let mutations = {
     UPDATE_AUTH_STATUS (state, authenticated) {
         Vue.set(state, 'is_authenticated', authenticated);

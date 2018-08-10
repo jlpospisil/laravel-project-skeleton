@@ -7,12 +7,10 @@ const state = {
     details: null
 };
 
-const userModule = {
+export default {
     namespaced: true,
     state,
     getters,
     actions,
     mutations
 };
-
-export default userModule;

@@ -5,7 +5,9 @@
 
         <div id="app-content" :class="{'side-nav-open': side_nav.is_open }">
             <div class="p-2">
-                <router-view></router-view>
+                <transition name="fade" mode="out-in">
+                    <router-view></router-view>
+                </transition>
             </div>
         </div>
     </div>

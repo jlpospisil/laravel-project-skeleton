@@ -4,6 +4,7 @@
         <SideNav></SideNav>
 
         <div id="app-content" :class="{'side-nav-open': side_nav.is_open }">
+            <Loading :loading="loading"></Loading>
             <div class="p-2">
                 <transition name="fade" mode="out-in">
                     <router-view :key="$route.path"></router-view>
@@ -35,20 +36,23 @@
     import {mapState, mapActions} from 'vuex';
     import TopNav from './ui/TopNav.vue';
     import SideNav from './ui/SideNav.vue';
+    import Loading from './ui/Loading.vue';
 
     export default {
         components: {
             TopNav,
-            SideNav
+            SideNav,
+            Loading
         },
         computed: {
-            ...mapState('ui', ['side_nav'])
+            ...mapState('ui', ['loading', 'side_nav'])
         },
         methods: {
+            ...mapActions('ui', ['updateLoadingStatus']),
             ...mapActions('user', ['getUserDetails'])
         },
         mounted () {
-            this.getUserDetails();
-        }
+          this.getUserDetails();
+        },
     }
 </script>

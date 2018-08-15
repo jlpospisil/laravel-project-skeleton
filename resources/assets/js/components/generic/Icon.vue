@@ -1,11 +1,12 @@
 <template>
-    <i :class="iconClass" :style="{ fontSize: `${size}em` }" />
+    <i :class="iconClass" :style="{ fontSize: `${size}em`, color }" />
 </template>
 
 <script>
 export default {
   props: {
     name: { type: String, required: true },
+    color: { type: String, required: false },
     size: { type: Number, required: false, default: 1 }
   },
   computed: {

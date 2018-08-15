@@ -1,7 +1,13 @@
 <template>
-    <ul id="app-side-nav" class="navbar-nav navbar-sidenav navbar-dark bg-primary h-100 d-flex flex-column" :class="{ open: side_nav.is_open }">
+    <transition-group
+            name="fade"
+            tag="ul"
+            id="app-side-nav"
+            class="navbar-nav navbar-sidenav navbar-dark bg-primary h-100 d-flex flex-column"
+            :class="{ open: side_nav.is_open }"
+    >
         <!-- Item 1 -->
-        <li class="nav-item">
+        <li class="nav-item" key="item1">
             <router-link to="/item1" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 1">
                 <i class="fa fa-fw fa-ambulance"></i>
                 <span class="nav-link-label">Item 1</span>
@@ -9,7 +15,7 @@
         </li>
 
         <!-- Item 2 -->
-        <li class="nav-item position-relative">
+        <li class="nav-item position-relative" key="item2">
             <a class="nav-link nav-link-dropdown-toggle collapsed" href="#app-side-nav-item2"
                data-toggle="collapse" aria-expanded="false" aria-controls="app-side-nav-item2"
                side-nav-tooltip data-placement="right" data-original-title="Item 2"
@@ -34,7 +40,7 @@
         </li>
 
         <!-- Item 3 -->
-        <li class="nav-item">
+        <li class="nav-item" key="item3">
             <router-link to="/item3" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 3">
                 <i class="fa fa-fw fa-bicycle"></i>
                 <span class="nav-link-label">Item 3</span>
@@ -42,16 +48,16 @@
         </li>
 
         <!-- Spacer -->
-        <li class="flex-fill"></li>
+        <li class="flex-fill" key="spacer"></li>
 
         <!-- Menu toggler -->
-        <li class="nav-item side-nav-toggle" @click="toggleSideNav()">
+        <li class="nav-item side-nav-toggle" key="toggler" @click="toggleSideNav()">
             <a class="nav-link text-right" href="#">
                 <i class="fa fa-fw fa-arrow-left" v-if="side_nav.is_open"></i>
                 <i class="fa fa-fw fa-arrow-right" v-else></i>
             </a>
         </li>
-    </ul>
+    </transition-group>
 </template>
 
 <style lang="scss">

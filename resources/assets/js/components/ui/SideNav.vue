@@ -9,7 +9,7 @@
         <!-- Item 1 -->
         <li class="nav-item" key="item1">
             <router-link to="/item1" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 1">
-                <i class="fa fa-fw fa-ambulance"></i>
+                <icon name="fa-ambulance" />
                 <span class="nav-link-label">Item 1</span>
             </router-link>
         </li>
@@ -20,19 +20,19 @@
                data-toggle="collapse" aria-expanded="false" aria-controls="app-side-nav-item2"
                side-nav-tooltip data-placement="right" data-original-title="Item 2"
            >
-                <i class="fa fa-fw fa-archive"></i>
+                <icon name="fa-archive" />
                 <span class="nav-link-label">Item 2</span>
             </a>
             <ul class="collapse list-unstyled nav-link-dropdown bg-primary" id="app-side-nav-item2">
                 <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Create item 2">
                     <router-link to="/item2/create" class="nav-link">
-                        <i class="fa fa-fw fa-plus"></i>
+                        <icon name="fa-plus" />
                         <span class="nav-link-label">Create</span>
                     </router-link>
                 </li>
                 <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Search item 2">
                     <router-link to="/item2/search" class="nav-link">
-                        <i class="fa fa-fw fa-search"></i>
+                        <icon class="fa-search" />
                         <span class="nav-link-label">Search</span>
                     </router-link>
                 </li>
@@ -42,7 +42,7 @@
         <!-- Item 3 -->
         <li class="nav-item" key="item3">
             <router-link to="/item3" class="nav-link" side-nav-tooltip data-placement="right" data-original-title="Item 3">
-                <i class="fa fa-fw fa-bicycle"></i>
+                <icon name="fa-bicycle" />
                 <span class="nav-link-label">Item 3</span>
             </router-link>
         </li>
@@ -53,8 +53,8 @@
         <!-- Menu toggler -->
         <li class="nav-item side-nav-toggle" key="toggler" @click="toggleSideNav()">
             <a class="nav-link text-right" href="#">
-                <i class="fa fa-fw fa-arrow-left" v-if="side_nav.is_open"></i>
-                <i class="fa fa-fw fa-arrow-right" v-else></i>
+                <icon name="fa-arrow-left" v-if="side_nav.is_open" />
+                <icon name="fa-arrow-right" v-else />
             </a>
         </li>
     </transition-group>
@@ -167,8 +167,12 @@
 
 <script>
     import {mapState, mapActions} from 'vuex';
+    import { Icon } from '../generic';
 
     export default {
+        components: {
+          Icon
+        },
         data () {
             return {
                 navigation: null,

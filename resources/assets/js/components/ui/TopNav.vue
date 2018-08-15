@@ -21,12 +21,12 @@
 
                         <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
                             <router-link to="/" class="dropdown-item text-white">
-                                <i class="fa fa-fw fa-cog"></i>
+                                <icon name="fa-cog" class="mr-2" />
                                 Settings
                             </router-link>
 
                             <a class="dropdown-item text-white" href="/logout">
-                                <i class="fa fa-fw fa-sign-out"></i>
+                                <icon name="fa-sign-out" class="mr-2" />
                                 Logout
                             </a>
                         </div>
@@ -44,8 +44,12 @@
 
 <script>
     import {mapState} from 'vuex';
+    import { Icon } from '../generic';
 
     export default {
+        components: {
+          Icon
+        },
         computed: {
             ...mapState('user', { user_details: 'details' })
         }

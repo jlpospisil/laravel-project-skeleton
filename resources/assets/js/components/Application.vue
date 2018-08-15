@@ -50,7 +50,6 @@
             ...mapState('ui', ['loading', 'side_nav'])
         },
         methods: {
-            ...mapActions('ui', ['updateLoadingStatus']),
             ...mapActions('user', ['getUserDetails'])
         },
         mounted () {

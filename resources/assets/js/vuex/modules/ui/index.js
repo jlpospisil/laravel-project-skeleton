@@ -3,7 +3,7 @@ import actions from './actions';
 import mutations from './mutations';
 
 const state = {
-    loading: false,
+    loading: true,
     side_nav: {
         is_open: true
     }

@@ -1,10 +1,12 @@
 <template>
     <div>
         <TopNav></TopNav>
+
         <SideNav></SideNav>
 
+        <Loading :loading="loading"></Loading>
+
         <div id="app-content" :class="{'side-nav-open': side_nav.is_open }">
-            <Loading :loading="loading"></Loading>
             <div class="p-2">
                 <transition name="fade" mode="out-in">
                     <router-view :key="$route.path"></router-view>
@@ -34,9 +36,9 @@
 
 <script>
     import {mapState, mapActions} from 'vuex';
-    import TopNav from './ui/TopNav.vue';
-    import SideNav from './ui/SideNav.vue';
-    import Loading from './ui/Loading.vue';
+    import TopNav from './ui/TopNav';
+    import SideNav from './ui/SideNav';
+    import Loading from './ui/Loading';
 
     export default {
         components: {

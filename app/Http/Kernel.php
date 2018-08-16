@@ -41,6 +41,10 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'web_api' => [
+            \App\Http\Middleware\VerifyExpectsJson::class,
+        ]
     ];
 
     /**

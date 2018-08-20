@@ -32,7 +32,7 @@
                 </li>
                 <li class="nav-item" side-nav-tooltip data-placement="right" data-original-title="Search item 2">
                     <router-link to="/item2/search" class="nav-link">
-                        <icon class="fa-search" />
+                        <icon name="fa-search" />
                         <span class="nav-link-label">Search</span>
                     </router-link>
                 </li>

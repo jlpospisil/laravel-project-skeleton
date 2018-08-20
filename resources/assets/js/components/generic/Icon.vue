@@ -1,5 +1,5 @@
 <template>
-    <i :class="iconClass" :style="{ fontSize: `${size}em`, color }" />
+    <i :class="iconClass" :style="{ fontSize: `${size}em`, color }" @click="$emit('click')" />
 </template>
 
 <script>

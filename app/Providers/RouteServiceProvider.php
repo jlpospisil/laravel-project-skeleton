@@ -37,9 +37,9 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        $this->mapWebApiRoutes();
 
-        //
+        $this->mapWebRoutes();
     }
 
     /**
@@ -70,5 +70,20 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('auth:api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "api" routes for the front end application.
+     *
+     * These routes are called via axios by the SPA web app
+     *
+     * @return void
+     */
+    protected function mapWebApiRoutes()
+    {
+        Route::prefix('app')
+            ->middleware(['web', 'web_api'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web_api.php'));
     }
 }
